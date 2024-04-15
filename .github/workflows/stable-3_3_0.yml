@@ -48,7 +48,7 @@ jobs:
             - uses: xmlFlow/pkp-github-actions@v1
               with:
                   node_version: 12
-                  repository: withanage
+                  repository: withanage/ops
                   branch: stable-3_3_0-issue-9214
                   dataset_branch: 'stable-3_3_0'
                   DATASETS_ACCESS_KEY:  ${{secrets.DATASETS_ACCESS_KEY}}

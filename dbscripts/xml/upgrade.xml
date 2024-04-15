@@ -98,12 +98,18 @@
 		<migration class="PKP\migration\upgrade\v3_4_0\I9535_FixEmptyFileStage"/>
 	</upgrade>
 
+	<upgrade minversion="3.1.0.0" maxversion="3.4.0.5">
+		<migration class="PKP\migration\upgrade\v3_4_0\I9830_FixEmptyUserLocales" />
+	</upgrade>
+
 	<upgrade minversion="3.1.0.0" maxversion="3.4.9.9">
 		<migration class="PKP\migration\upgrade\v3_5_0\I9197_MigrateAccessKeys"/>
 		<migration class="PKP\migration\upgrade\v3_5_0\I9253_SiteAnnouncements"/>
 		<migration class="PKP\migration\upgrade\v3_5_0\I9262_Highlights"/>
-		<migration class="PKP\migration\upgrade\v3_5_0\I9462_UserUserGroups"/>
+		<migration class="PKP\migration\upgrade\v3_5_0\I9462_UserUserGroupsStartEndDate"/>
 		<migration class="PKP\migration\upgrade\v3_5_0\I9552_UserGroupsMasthead"/>
+		<migration class="APP\migration\upgrade\v3_5_0\I9425_SeparateUIAndSubmissionLocales"/>
+		<migration class="PKP\migration\upgrade\v3_5_0\I9709_UserUserGroupsMasthead"/>
 	</upgrade>
 
 	<!-- update plugin configuration - should be done as the final upgrade task -->

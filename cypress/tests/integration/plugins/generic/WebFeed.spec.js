@@ -27,7 +27,7 @@ describe('Web Feed plugin tests', () => {
 		cy.visit('publicknowledge/management/settings/website#appearance');
 		cy.reload();
 		cy.get('#appearance #setup-button').click();
-		cy.wait(5);
+		cy.wait(5000);
 		cy.get('input[value=WebFeedBlockPlugin]').click();
 		cy.get('input[value=WebFeedBlockPlugin]').check();
 		cy.contains('Web Feed Plugin').parents('form').find('button:contains("Save")').click();

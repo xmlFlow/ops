@@ -31,10 +31,13 @@ describe('Web Feed plugin tests', () => {
 		cy.reload();
 		cy.get('#appearance #setup-button').click();
 		cy.get('input[value=WebFeedBlockPlugin]').check();
+		cy.get('input[value=WebFeedBlockPlugin]').check();
+		cy.contains('Web Feed Plugin').parents('form').find('button:contains("Save")').click();
 		cy.contains('Web Feed Plugin').parents('form').find('button:contains("Save")').click();
 
 
 		// Visit homepage
+		cy.visit('');
 		cy.visit('');
 		const feeds = {
 			'atom': {mimeType: 'application/atom+xml'},
@@ -44,16 +47,13 @@ describe('Web Feed plugin tests', () => {
 		for (const feed in feeds) {
 			// Find the web feeds at the side bar
 			cy.get('.block_web_feed').find(`a[href$="WebFeedGatewayPlugin/${feed}"]`).then(link => feeds[feed].url = link.attr('href'));
-			cy.wait(500)
+
 			// Find the linked feeds at the homepage
 			cy.get(`link[href$="WebFeedGatewayPlugin/${feed}"][type="${feeds[feed].mimeType}"]`);
-			cy.wait(500)
 		}
 		cy.then(() => {
 			validateAtom(feeds.atom);
-			cy.wait(500)
 			validateRss(feeds.rss);
-			cy.wait(500)
 			validateRss2(feeds.rss2);
 		});
 	});

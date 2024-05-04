@@ -44,13 +44,16 @@ describe('Web Feed plugin tests', () => {
 		for (const feed in feeds) {
 			// Find the web feeds at the side bar
 			cy.get('.block_web_feed').find(`a[href$="WebFeedGatewayPlugin/${feed}"]`).then(link => feeds[feed].url = link.attr('href'));
-
+			cy.wait(500)
 			// Find the linked feeds at the homepage
 			cy.get(`link[href$="WebFeedGatewayPlugin/${feed}"][type="${feeds[feed].mimeType}"]`);
+			cy.wait(500)
 		}
 		cy.then(() => {
 			validateAtom(feeds.atom);
+			cy.wait(500)
 			validateRss(feeds.rss);
+			cy.wait(500)
 			validateRss2(feeds.rss2);
 		});
 	});

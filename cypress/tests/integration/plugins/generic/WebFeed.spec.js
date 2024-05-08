@@ -20,6 +20,7 @@ describe('Web Feed plugin tests', () => {
 		cy.get('#displayPage-all').check();
 		cy.get('input[id^="recentItems"]').clear().type(feedSize, {delay: 0});
 		cy.get('#includeIdentifiers').check();
+		cy.wait(2000);
 		cy.get('form[id="webFeedSettingsForm"] button[id^="submitFormButton"]').click();
 		cy.waitJQuery();
 
